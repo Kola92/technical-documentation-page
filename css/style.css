@@ -1,0 +1,58 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: 1.12rem/1.4 Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    background-color: bisque;
+}
+
+
+nav h1 {
+    text-align: center;
+}
+
+hr {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+nav ul {
+    border: 3px solid whitesmoke;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+nav a {
+    text-decoration: none;
+    
+}
+
+nav li {
+    list-style: none;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    height: 7vh;
+    padding-top: 14px;
+    color: rgba(0, 0, 0, 0.795)
+} 
+
+main {
+    padding-left: 40px;
+}
+
+.sub-heading, .ref-text {
+    color: cadetblue;
+}

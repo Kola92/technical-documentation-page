@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Technical Documentation Page</title>
+    </head>
+    <body>
+        <nav id="navbar">
+            <header>
+                <h1>CSS Documentation</h1>
+            </header>
+            <hr />
+            <ul>
+                <a class="nav-link" href="#introduction"><li>Introduction</li></a>
+                <a class="nav-link" href="#prerequisites"><li>Prerequisites</li></a>
+                <a class="nav-link" href="#how_css_works"><li>How CSS Works</li></a>
+                <a class="nav-link" href="#syntax"><li>Syntax</li></a>
+                <a class="nav-link" href="#selectors"><li>Selectors</li></a>
+                <a class="nav-link" href="#css_values_and_units"><li>CSS Values and Units</li></a>
+                <a class="nav-link" href="#cascade_and_inheritance"><li>Cascade and Inheritance</li></a>
+                <a class="nav-link" href="#the_box_model"><li>The Box Model</li></a>
+                <a class="nav-link" href="#css_layout"><li>CSS Layout</li></a>
+                <a class="nav-link" href="#reference"><li>Reference</li></a>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section" id="introduction">
+                <header>
+                    <h2>Introduction</h2>
+                </header>
+                <article>
+                    <p class="sub-heading">What is CSS?</p>
+                    
+                    <li>CSS stands for Cascading Style Sheets.The name <q>Cascading</q> comes from the specified priority scheme to determine which style rule applies if more than one rule matches a particular element.</li>
+                    <li>CSS describes how HTML elements are to be displayed on screen, print or media.</li>
+                    <li>CSS is used to style and layout web pages - for example, to alter the font, colour, size and spacing of your content, split it into multiple columns, or add animations and other decorative features.</li>
+                    <li>CSS can provide more flexibility and control in the specification of presentation characteristics, enable multiple web pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.</li>
+                </article>
+            </section>
+            
+            <section class="main-section" id="prerequisites">
+                <header>
+                    <h2>Prerequisites</h2>
+                </header>
+                <article>
+                    <p>It assumed that that you have the following basic knowledge:</p>
+                    
+                    <li>A solid grip on the workings of the Internet and World Wide Web(WWW).</li>
+                    <li>Familiarity with using computers and an understanding on creating and managing files.</li>
+                    <li>A solid knowledge on how HTML(HyperText Markup Language) works.</li>
+                </article>
+            </section>
+            
+            <section class="main-section" id="how_css_works">
+                <header>
+                    <h2>How CSS Works</h2>
+                </header>
+                <article>
+                    <p>CSS allows you to create great looking pages, but how does it really work under the hood?</p>
+
+                    <p>Web browsers apply what is CSS rule-set to a document(i.e HTML) to affect how they are displayed. A CSS rule-set consists of a selector and a declaration block:</p>
+
+                    <li>The selector points to the HTML element you want to style.</li>
+                    <li>The declaration block contains one or more declarations separated by semicolons.</li>
+                    <li>Each declaration includes a CSS property name and a value, separated by a colon.</li>   
+                    <li>A CSS declaration always ends with a semicolon, and the declaration blocks are surrounded by curly braces.</li>   
+
+                    <p>To clarify what was explained above, an example can be found below. First of all, let's take a look at the following HTML document(notice that a stylesheet is applied to the HTML within the head tag):</p>
+                    <pre>
+                        <code>
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8"&gt;
+                                    &lt;title>My CSS experiment&lt;/title&gt;
+                                    &lt;link rel="stylesheet" href="style.css"&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Hello World!&lt;/h1&gt;
+                                    &lt;p&gt;This is my first CSS example&lt;/p&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </code>    
+                    </pre>      
+                    <p>Now lets take a look at the following containing the CSS rule-set:</p>
+
+                    <pre>
+                        <code>
+                            h1 {
+                              color: blue;
+                              background-color: yellow;
+                              border: 1px solid black;
+                            }
+
+                            p {
+                              color: red;
+                            }    
+                        </code>
+                    </pre>        
+                    
+                    <p>The first rule starts with an h1 selector, which means that it will apply its property & values to the <span>&lt;h1&gt;</span> element. It contains three properties and their values (each property/value pair is called a <strong>declaration</strong> and everything contained within the <q>{}</q> is called a <strong>declaration block</strong>):</p>
+
+                    <ul>
+                        <li>The first one sets the <span>h1</span> text color to blue.</li>
+                        <li>The second sets the background color of the <span>h1</span> text to yellow.</li>
+                        <li>The third one puts a border around the <span>h1</span> that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.</li>
+                    </ul>
+                </article>
+            </section>
+            
+            <section class="main-section" id="syntax">
+                <header>
+                    <h2>Syntax</h2>
+                </header>
+                <article>
+                    <p>
+                        Just to give you an idea of what to expect. We will be looking at how properties and their values form into declarations, multiple declarations form into declaration blocks, and declaration blocks and selectors form into complete CSS rules.
+                    </p>
+                    
+                    <p>
+                        As explained previously, but with more in depth clarification. To make a declaration block, CSS usually contains the following:
+                    </p>
+                    
+                    <ul>
+                        <li>
+                            <strong>Properties: </strong>Human-readable identifiers that indicate which stylistic features (e.g. font, width, background color) you want to change.
+                        </li>
+                        <li>
+                            <strong>Values: </strong>Each specified property is given a value, which indicates how you want to change those stylistic features (e.g. what you want to change the font, width or background color to.)
+                        </li>
+                    </ul>
+
+                    <p>
+                        A property paired with a value is called a <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax#CSS_declarations">CSS declaration</a>. CSS declarations are put within <strong>CSS Declaration Blocks</strong>. And finally, CSS declaration blocks are paired with selectors to produce CSS Rulesets (or CSS Rules).
+                    </p>
+                    
+                    <p>
+                        Lets look at another example of an actual CSS rule-set, then we break it down one by one:
+                    </p>
+                    
+                    <pre>
+                        <code>
+                            h1 {
+                              colour: blue;
+                              background-color: yellow;
+                              border: 1px solid black;
+                            }
+
+                            p {
+                              color: red;
+                            }
+
+                            p, li {
+                              text-decoration: underline;
+                            }
+                        </code>
+                    </pre>
+                    <h3 class="sub-heading">CSS Declarations</h3>
+                    
+                    <p>
+                        Setting CSS properties to specific values is the core function of the CSS language. The CSS engine calculates which declarations apply to every single element of a page in order to appropriately lay it out and style it. What is important to remember is that both properties and values are case-sensitive in CSS. The property and value in each pair is separated by a colon (:).
+                    </p>
+                    
+                    <figure>
+                        <img src="https://mdn.mozillademos.org/files/3665/css%20syntax%20-%20declaration.png" alt="An image of CSS declaration" />
+                        <figcaption>CSS Declaration</figcaption>
+                    </figure>
+                    
+                    <h3 class="sub-heading">CSS Declarations Block</h3>
+                    
+                    <p>
+                        Declarations are grouped in blocks, with each set of declarations being wrapped by an opening curly brace, ({) and a closing one (}).
+                    </p>
+                    
+                    <p>
+                        Each declaration contained inside a declaration block has to be separated by a semi-colon (;), otherwise the code won't work (or will at least give unexpected results.) The last declaration of a block doesn't need to be terminated by a semi-colon, though it is often considered good style to do so as it prevents forgetting to add it when extending the block with another declaration.
+                    </p>
+                    
+                    <figure>
+                        <img src="https://mdn.mozillademos.org/files/3667/css%20syntax%20-%20declarations%20block.png" alt="An image of a CSS declaration block" />
+                        <figcaption>A CSS Declaration Block</figcaption>
+                    </figure>
+                    
+                    <h3 class="sub-heading">CSS Selectors and Rules</h3>
+                    
+                    <p>
+                        It's important we discuss how to tell our declaration blocks which elements they should be applied to. This is done by prefixing each declaration block with a selector — a pattern that matches some elements on the page. The associated declarations will be applied to those elements only. The selector plus the declaration block is called a <strong>ruleset</strong>, or often simply just a <strong>rule</strong>.
+                    </p>
+                    
+                    <figure>
+                        <img src="https://mdn.mozillademos.org/files/3668/css%20syntax%20-%20ruleset.png" alt="An image of a CSS ruleset" />
+                        <figcaption>A CSS ruleset(or rule)</figcaption>
+                    </figure>
+                    
+                    <p>
+                        Selectors can get very complicated — you can make a rule match multiple elements by including multiple selectors separated by commas (a group,) and selectors can be chained together.
+                    </p>
+                    
+                    <p>
+                        An element may be matched by several selectors, therefore several rules may set a given property multiple times. CSS defines which one has precedence over the others and must be applied: this is called the <strong>cascade algorithm</strong>.
+                    </p>
+                    
+                    <h3 class="sub-heading">CSS Statements</h3>
+                    <p>
+                        CSS rules is the most common declarations block you will see in CSS. But there are other types of blocks you will come across occasionally - CSS rules are type of so-called statements. The other types are as follows:
+                    </p>
+                    
+                    <ul>
+                        <li>
+                            <strong>At-rules</strong> are used in CSS to convey metadata, conditional information, or other descriptive information. They start with an at sign (@), followed by an identifier to say what kind of rule it is, then a syntax block of some kind, ending with a semi-colon (;). Each type of at-rule, defined by the identifier, will have its own internal syntax and semantics.<br> Examples include:
+                            <ul>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@charset">@charset</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">@import (metadata)</a>
+                                </li>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@document">@document</a> (conditional information, also called nested statements, see below.)
+                                </li>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">@font-face</a>(descriptive information)
+                                </li>
+                            </ul>
+                            A syntax example:
+                            
+                            <pre>
+                                <code>
+                                    @import 'custom.css';<br>
+                                    @font-face {
+                                          font-family: "Open Sans";
+                                          src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+                                               url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+                                        }    
+                                </code>
+                            </pre>
+                            The first at-rule imports another CSS file into the current CSS while the second one specifies a custom font with which to display text; the font can be loaded from either a remote server or the user's own computer.
+                        </li>
+                        <li>
+                            <strong>Nested statements</strong> are a specific subset of at-rule, the syntax of which is a nested block of CSS rules that will only be applied to the document if a specific condition is matched:
+                            <ul>
+                                <li>The @media at-rule content is applied only if the device which runs the browser matches the expressed condition;</li>
+                                <li>the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">@supports</a> at-rule content is applied only if the browser actually supports the tested feature</li>
+                                <li>the @document at-rule content is applied only if the current page matches some conditions.</li>
+                            </ul>
+                            A syntax example:
+                            
+                             <pre>
+                                <code>
+                                    @media (min-width: 801px) {
+                                      body {
+                                        margin: 0 auto;
+                                        width: 800px;
+                                      }
+                                    }        
+                                </code>
+                            </pre>
+                            
+                            <p>The above nested statement only applies the nested rule only on the condition of when the page's width exceeds 800 pixels</p>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="sub-heading">White Spaces</h3>
+                    <p>
+                        An important best practice is adding white spaces in your CSS code. White space means actual spaces, tabs and new lines. You can add white space to make your style sheets more readable. Although the browser tends to ignore much of the whitespace inside your CSS; a lot of the whitespace is just there to aid readability.
+                    </p>
+                    
+                    <h3 class="sub-heading">Comments</h3>
+                    <p>
+                        Another major best practice is putting comments in your CSS, to help you understand how your code works when coming back to it after several months, and to help others understand it. Comments are also useful for temporarily commenting out certain parts of the code for testing purposes, for example if you are trying to find which part of your code is causing an error.
+                    </p>
+                    
+                    <p>Comments in CSS begin with <span>/*</span> and <span>*/</span></p>
+                    
+                    <p>Take the following code snippet for an example:</p>
+                    <pre>
+                        <code>
+                            /* Style the header area */
+                            header {
+                                background-color: cyan;
+                                font-size: 3em;
+                                color: crimson;
+                                padding-top: 12px;
+                            }
+                        </code>
+                    </pre>
+                </article>
+            </section>
+            
+            <section class="main-section" id="selectors">
+                <header>
+                    <h2>Selectors</h2>
+                </header>
+                <article>
+                    <p>Selectors are one part of a CSS rule and comes before CSS declaration blocks.</p>
+                    
+                    <figure>
+                        <img src="https://mdn.mozillademos.org/files/3668/css%20syntax%20-%20ruleset.png" alt="A CSS rule set" />
+                        <figcaption>A CSS rule set with a group of selectors before the declaration block</figcaption>
+                    </figure>
+                    
+                    <p>Selectors can divided into the following  categories:</p>
+                    <ul>
+                        <li>
+                            <strong>Simple selectors</strong>: Match one or more elements based on element type, class, or id. Here to gaining better insights into the above listed selectors:
+                            <ul>
+                                <li><strong>Type or Element Selectors</strong>:</li>
+                                <p>The element selector selects elements based on the element name. This selector is just case-insensitive match between the selector name and a given HTML element name. You can select all &lt;p&gt; elements on a page like this (in this case, all &lt;p&gt; elements will be center-aligned, with a red text color):</p>
+                                <pre>
+                                    <code>
+                                        p {
+                                            text-align: center;
+                                            color: red;
+                                        }
+                                    </code>
+                                </pre>
+                                <li><strong>Class selectors</strong>:
+                                </li>
+                                <p>The class selector consists of a dot, '.', followed by a class name. A class name is any value, without spaces, placed within an HTML class attribute.<br>In the example below, all HTML elements with class="center" will be red and center-aligned:</p>
+                                <pre>
+                                    <code>
+                                        .center {
+                                            text-align: center;
+                                            color: red;
+                                        }
+                                    </code>
+                                </pre>
+                                <li><strong>ID selectors</strong>:</li>
+                                <p>The ID selector consists of a hash/pound symbol (#), followed by the ID name of a given name. The id of an element should be unique within a page, so the id selector is used to select one unique element.<br>The style rule below will be applied to the HTML element with id="para1":</p>
+                                  <pre>
+                                    <code>
+                                        #para1 {
+                                            text-align: center;
+                                            color: teal;
+                                        }
+                                    </code>
+                                </pre>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Attribute selectors:</strong> Attribute selectors are a special kind of selector that will match elements based on their attributes and attribute values. Their generic syntax consists of square brackets ([]) containing an attribute name followed by an optional condition to match against the value of the attribute. Attribute selectors can be divided into two categories depending on the way they match attribute values:
+                            
+                            <ul>
+                                <li><strong>Presence and value attribute selectors</strong></li>
+                                <p>These attribute selectors try to match an exact attribute value:</p>
+                                <ul>
+                                    <li>
+                                        <code>[attr]</code>: This selector will select all elements with the attribute <code>attr</code>, whatever its value.
+                                    </li>
+                                    <li>
+                                        <code>[attr=val]</code>: This selector will select all elements with the attribute <code>attr</code>, but only if its value is <code>val</code>.
+                                    </li>
+                                    <li>
+                                        <code>[attr~=val]</code>: This selector will select all elements with the attribute <code>attr</code>, but only if  <code>val</code> is one of a space-separated list of words contained in <code>attr</code>'s value.
+                                    </li>
+                                    <p>Let's look at an example featuring the following HTML snippet:</p>
+                                    <pre>
+                                        <code>
+                                            &lt;ul&gt;
+                                                &lt;li data-quantity="1kg" data-vegetable&gt;Tomatoes&lt;/li&gt;
+                                                &lt;li data-quantity="3" data-vegetable&gt;Onions&lt;/li&gt;
+                                                &lt;li data-quantity="optional 10ml" data-vegetable="liquid"&gt;Olive oil&lt;/li&gt;
+                                                &lt;li data-quantity="700g" data-vegetable="not spicy like chili"&gt;Red pepper&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        </code>
+                                    </pre>    
+                                    <p>CSS that matches the above attributes:</p>
+                                    <pre>
+                                        <code>
+                                          /* All elements with the attribute "data-vegetable" are given green text */
+                                            [data-vegetable] {
+                                              color: green;
+                                            }
+
+                                            /* All elements with the attribute "data-vegetable" with the exact value "liquid" are given a golden
+                                               background color */
+                                            [data-vegetable="liquid"] {
+                                              background-color: goldenrod;
+                                            }
+
+                                            /* All elements with the attribute "data-vegetable", containing the value "spicy", even among others, are given a red text color */
+                                            [data-vegetable~="spicy"] {
+                                              color: red;
+                                            }  
+                                        </code>
+                                    </pre>
+                                </ul>
+                                <li><strong>Substring value attribute selectors</strong></li>
+                                <p>Attribute selectors in this class are also known as "RegExp-like selectors", because they offer flexible matching in a similar fashion to regular expression (but to be clear, these selectors are not true regular expression):</p>
+                                <ul>
+                                    <li>
+                                        <code>[attr^=val]</code>: This selector will select all elements with the attribute <code>attr</code> for which the value starts with <code>val</code>
+                                    </li>
+                                    <li>
+                                        <code>[attr$=val]</code>: This selector will select all elements with the attribute <code>attr</code> for which the value ends with <code>val</code>.
+                                    </li>
+                                    <li>
+                                        <code>[attr*=val]</code>: This selector will select all elements with the attribute <code>attr</code> for which the value contains the substring <code>val</code>. (A substring is simply part of a string, e.g. "cat" is a substring in the string "caterpillar".) 
+                                    </li>
+                                    <p>Let's use our previous HTML snippet example and add the following CSS rules:</p>
+                                    <pre>
+                                        <code>
+                                            /* All elements with the attribute "data-quantity", for which the value starts with "optional" */
+                                            [data-quantity^="optional"] {
+                                              opacity: 0.5;
+                                            }
+
+                                            /* All elements with the attribute "data-quantity", for which the value ends with "kg" */
+                                            [data-quantity$="kg"] {
+                                              font-weight: bold;
+                                            }
+
+                                            /* All elements with the attribute "data-vegetable" containing the substring "not spicy" are turned back to green */
+                                            [data-vegetable*="not spicy"] {
+                                              color: green;
+                                            }
+                                        </code>
+                                    </pre>
+                                </ul>
+                            </ul>    
+                        </li>
+                        <li><strong>Pseudo-classes:</strong></li>
+                        <p>A CSS pseudo-class is a keyword added to the end of a selector, preceded by a colon (:), which is used to specify that you want to style the selected element but only when it is in a certain state. For example, you might want to style a link element only when it is being hovered over by the mouse pointer, or a checkbox when it is disabled or checked, or an element that is the first child of its parent in the DOM tree.</p>
+                        <p>Take an example of the following HTML snippet:</p>
+                        <code>
+                            &lt;a href="https://developer.mozilla.org/" target="_blank"&gt;Mozilla Developer Network&lt;/a&gt;
+                        </code>
+                        <p>Here goes the CSS rules:</p>
+                        <pre>
+                            <code>
+                                /* We want visited links to be purple */
+                                a:visited {
+                                  color: purple;
+                                }
+
+                                /* We highlight the link when it is hovered (mouse), activated or focused (keyboard) */
+                                a:hover,
+                                a:active,
+                                a:focus {
+                                  color: darkred;
+                                  text-decoration: none;
+                                }
+                            </code>
+                        </pre>
+                        <li><strong>Pseudo-elements:</strong></li>
+                        <p>Pseudo-elements are very much like pseudo-classes, but they have differences. They are keywords, this time preceded by two colons (::), that can be added to the end of selectors to select a certain part of an element.</p>
+                        <p>Here we'll just show a simple CSS example that selects the space just after all absolute links and adds an arrow in that space:</p>
+                        <pre>
+                            <code>
+                                &lt;ul&gt;
+                                    &lt;li&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS"&gt;CSS&lt;/a&gt; defined in the MDN glossary.&lt;/li&gt;
+                                    &lt;li&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML"&gt;HTML&lt;/a&gt; defined in the MDN glossary.&lt;/li&gt;
+                                &lt;/ul&gt;
+                            </code>
+                        </pre>    
+                        <p>CSS rule:</p>
+                        <pre>
+                            <code>
+                                /* All elements with an attribute "href" with values starting with "http" will have an arrow added after their content (to indicate they are external links) */
+                                [href^=http]::after {
+                                  content: '⤴';
+                                }
+                            </code>
+                        </pre>
+                    </ul>
+                </article>
+            </section>
+            
+            <section class="main-section" id="css_values_and_units">
+                <header>
+                    <h2>CSS Values and Units</h2>
+                </header>
+                <article>
+                    <p>There are many value types in CSS, some of them very common and some of them that you'll rarely come across. We won't cover all of them exhaustively in this documentation; just the ones that you are likely to find most useful when implementing CSS. We will cover the following CSS values:</p>
+                    <ul>
+                        <li>Numeric values: Length values for specifying e.g. element width, border thickness, or font size, and unitless integers for specifying e.g. relative line width or number of times to run an animation.</li>
+                        <li>Percentages: Can also be used to specify size or length — relative to a parent container's width or height for example, or the default font-size.</li>
+                        <li>Colors: For specifying background colors, text colors, etc.</li>
+                    </ul>
+                    <h3 class="sub-heading">Numeric values</h3>
+                    <ul>
+                        <li>Absolute units: Pixels(px), q, mm, cm, in, pt, pc(quarter millimeters, millimeters, centimeters, inches, points[1/72 of an inch] and picas[12 points] respectively) are considered absolute units because they will always be the same size regardless of any other related settings.</li>
+                        <p>However, the most used of the above units is pixels.</p>
+                        <li>
+                            Relative units: em(the computed value of 1em is 16 pixels for an element by default, and also the most common relative unit used in web development), rem[(root em) works in exactly the same way as the em, except that it will always equal the size of the default base font-size] , vh & vh(these are 1/100th of the width of the viewport, and 1/100th of the height of the viewport respectively). They are known as relative units because they are relative to the current element's font-size or viewport size
+                        </li>
+                    </ul>
+                    
+                    <h3 class="sub-heading">Percentages</h3>
+                    <p>Percentage values can also be used to specify most things that can be specified by numeric values. This allows us to create, for example, boxes whose width will always shift to be a certain percentage of their parent container's width. This can be compared to boxes that have their width set to a certain unit value (like px or ems), which will always stay the same length, even if their parent container's width changes.</p>
+                    <p>For example, the following div will occupy 40% of its parent element's width:</p>
+                    <pre>
+                        <code>
+                            div {
+                                width: 40%;
+                            }
+                        </code>
+                    </pre>
+                    
+                    <h3 class="sub-heading">Colors</h3>
+                    <p>There are many ways to specify color in CSS, some of which are more recently implemented than others.</p>
+                    <p>The standard color system available in modern computers is 24 bit, which allows the display of about 16.7 million distinct colors via a combination of different red, green and blue channels with 256 different values per channel (256 x 256 x 256 = 16,777,216.)</p>
+                    <p>There are different available types of color values:</p>
+                    <h4>Keywords</h4>
+                    <p>The simplest, oldest color types in CSS are the color keywords. These are specific strings representing particular color values. Example is below:</p>
+                    <pre>
+                        <code>
+                            p {
+                              background-color: red;
+                            }
+                        </code>
+                    </pre>
+                    
+                    <h4 class="sub-heading">Hexadecimal values</h4>
+                    <p>These are hexadecimal colors, or hex codes. Each hex value consists of a hash/pound symbol (#) followed by six hexadecimal numbers(ie #ffffff) the first two letters after the # represents red, the next two represents green and the last two represents blue, but also each of them can take a value between 0 and f (which represents 15) — so 0123456789abcdef. Each pair of values represents one of the channels — red, green and blue — and allows us to specify any of the 256 available values for each (16 x 16 = 256.) An example:</p>
+                    <pre>
+                        <code>
+                            /* equivalent to the red keyword */
+                            p:nth-child(1) {
+                              background-color: #ff0000;
+                            }
+
+                            /* equivalent to the blue keyword */
+                            p:nth-child(2) {
+                              background-color: #0000ff;
+                            }
+
+                            /* has no exact keyword equivalent */
+                            p:nth-child(3) {
+                              background-color: #e0b0ff;
+                            }
+                        </code>
+                    </pre>
+                    <p>These values are a bit more complex and less easy to understand, but they are a lot more versatile than keywords — you can use hex values to represent any color you want to use in your color scheme.</p>
+                    
+                    <h4 class="sub-heading">RGB</h4>
+                    <p>An RGB value is a function — rgb() — which is given three parameters that represent the red, green and blue channel values of the colors, in much the same way as hex values. The difference with RGB is that each channel is represented not by two hex digits, but by a decimal number between 0 and 255. Example is below:</p>
+                    <pre>
+                        <code>
+                             /* equivalent to the red keyword */
+                                p:nth-child(1) {
+                                  background-color: rgb(255,0,0);
+                                }
+                            
+                            /* equivalent to the green keyword */
+                                p:nth-child(1) {
+                                  background-color: rgb(0,255,0);
+                                }
+                            /* equivalent to the blue keyword */
+                                p:nth-child(1) {
+                                  background-color: rgb(0,0,255);
+                                }     
+                        </code>
+                    </pre>
+                    
+                    <h4 class="sub-heading">HSL</h4>
+                    <p>This one was implemented after much interest from designers — instead of red, green and blue values, the hsl() function accepts <strong>hue</strong>, <strong>saturation</strong>, and <strong>lightness</strong> values, which are used to distinguish between the 16.7 million colors, but in a different way:</p>
+                    <ol>
+                        <li><strong>hue</strong>: the base shade of the color. This takes a value between 0 and 360, presenting the angles round a color wheel, where 0 (or 360) is red, 120 is green and 240 is blue.</li>
+                        <li><strong>saturation</strong>: how saturated is the color? This takes a value from 0-100%, where 0 is no color (it will appear as a shade of grey), and 100% is full color saturation.</li>
+                        <li><strong>lightness</strong>: how light or bright is the color? This takes a value from 0-100%, where 0 is no light (it will appear completely black) and 100% is full light (it will appear completely white.)</li>
+                    </ol>
+                </article>
+            </section>
+            
+            <section class="main-section" id="cascade_and_inheritance">
+                <header>
+                    <h2>Cascade and Inheritance</h2>
+                </header>
+                <article>
+                    <p>
+                        There will come a situation where multiple CSS rules will have selectors matching the same element. In this case, there will be a CSS rule that ends up being the one that is finally applied to the element? This is controlled by a mechanism called the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">Cascade</a>; this is also related to inheritance (elements will take some property values from their parents, but not others).
+                    </p>
+                    <h2>The cascade</h2>
+                    <p>CSS is an acronym for Cascading Style Sheets, which indicates that the notion of the cascade is important. At its most basic level, it indicates that the order of CSS rules matter, but it's more complex than that. What selectors win out in the cascade depends on three factors (these are listed in order of weight — earlier ones will overrule later ones):</p>
+                    <ul>
+                        <li>Importance</li>
+                        <li>Specificity</li>
+                        <li>Source order</li>
+                    </ul>
+                    <h3 class="sub-heading">Importance</h3>
+                    <p>In CSS, there is a special piece of syntax you can use to make sure that a certain declaration will always win over all others: !important.</p>
+                    <p>An HTML snippet example:</p>
+                    <pre>
+                        <code>
+                            &lt;p class="better" id="winning"&gt;One selector to rule them all!&lt;/p&gt;
+                        </code>
+                    </pre>    
+                    <p>The CSS:</p>
+                    <pre>
+                        <code>
+                                #winning {
+                                    background-color: red;
+                                    border: 1px solid black;
+                                }
+                                
+                                .better {
+                                    background-color: gray;
+                                    border: none <span>!important</span>;
+                                }          
+                        </code>
+                    </pre>
+                    <p>What happens in the above code is the <span>!important</span> syntax overrides the border style effect of <code>#winning</code>(an ID selector has specificity 1,0,0 ), this means an ID selector has specificity over class and type selectors. However, in this case, <span>!important</span> syntax has a higher specifity than the ID selector. Therefore the border style effect is removed as <code>border: none;</code> means no border.</p>
+
+                    <h3 class="sub-heading">Specificity</h3>
+                    <p><strong>Specificity</strong> is basically a measure of how specific a selector is — how many elements it could match. As shown in the example seen above, element selectors have low specificity. Class selectors have a higher specificity, so will win against element selectors. ID selectors have an even higher specificity, so will win against class selectors. The only way to win against an ID selector is to use <code>!important</code>(as stated above).</p>
+                    <p>The amount of specificity a selector has is measured using four different values (or components), which can be thought of as thousands, hundreds, tens and ones — four single digits in four columns:</p>
+                    <ul>
+                        <li>Thousands: Score one in this column if the declaration is inside a style attribute (such declarations don't have selectors, so their specificity is always simply 1000.) Otherwise 0.</li>
+                        <li>Hundreds: Score one in this column for each ID selector contained inside the overall selector.</li>
+                        <li>Tens: Score one in this column for each class selector, attribute selector, or pseudo-class contained inside the overall selector.</li>
+                        <li>Ones: Score one in this column for each element selector or pseudo-element contained inside the overall selector.</li>
+                    </ul>
+
+                    <h3 class="sub-heading">Source order</h3>
+                    <p>When multiple competing selectors have the same importance and specificity, the third factor that comes into play to help decide which rule wins is source order — later rules will win over earlier rules. For example:</p>
+                    <pre>
+                        <code>  
+                            p {
+                                color: blue;
+                            }
+                                
+                            /* This rule will win over the first one */
+                            p {
+                                color: red;
+                            }
+                        </code>    
+                    </pre>
+                    <p>Whereas in this example the first rule wins because source order is overruled by specificity:</p>
+                    <pre>
+                        <code>
+                            /* This rule will win */
+                            .footnote {
+                            color: blue;
+                            }
+                            
+                            p {
+                            color: red;
+                            }
+                        </code>
+                    </pre>
+                    <h2>Inheritance</h2>
+                    <p>The idea here is that some property values applied to an element will be inherited by that element's children, and some won't.</p>
+                    <ul>
+                        <li>For example, it makes sense for <code>font-family</code>and <code>color</code> to be inherited, as that makes it easy for you to set a site-wide base font by applying a font-family to the &lt;html&gt; element; you can then override the fonts on individual elements where needed. It would be really annoying to have to set the base font separately on every element.</li>
+                        <li>As another example, it makes sense for <code>margin</code>, <code>padding</code>, <code>border</code>, and <code>background-image</code> to NOT be inherited. Imagine the styling/layout mess that would occur if you set these properties on a container element and had them inherited by every single child element, and then had to unset them all on each individual element!</li>
+                    </ul>
+                    <h3 class="sub-heading">Controlling inheritance</h3>
+                    <p>CSS provides four special universal property values for specifying inheritance:</p>
+                    <dl>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inherit" class="sub-heading">inherit</a>
+                        </dt>
+                        <dd>Sets the property value applied to a selected element to be the same as that of its parent element.</dd>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial" class="sub-heading">initial</a>
+                        </dt>
+                        <dd>Sets the property value applied to a selected element to be the same as the value set for that element in the browser's default style sheet. If no value is set by the browser's default style sheet and the property is naturally inherited, then the property value is set to inherit instead.</dd>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/unset" class="sub-heading">unset</a>
+                        </dt>
+                        <dd>Resets the property to its natural value, which means that if the property is naturally inherited it acts like <code>inherit</code>, otherwise it acts like <code>initial</code>.</dd>    
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/revert" class="sub-heading">revert</a>
+                        </dt>
+                        <dd>Reverts the property to the value it would have had if the current origin had not applied any styles to it. In other words, the property's value is set to the user stylesheet's value for the property (if one is set), otherwise, the property's value is taken from the user agent's default stylesheet.</dd>
+                    </dl>
+                </article>
+            </section>
+            
+            <section class="main-section" id="the_box_model">
+                <header>
+                    <h2>The Box Model</h2>
+                </header>
+                <article>
+                    <p>The CSS box model is the foundation of layout on the Web — each element is represented as a rectangular box, with the box's content, padding, border, and margin built up around one another like the layers of an onion. As a browser renders a web page layout, it works out what styles are applied to the content of each box, how big the surrounding onion layers are, and where the boxes sit in relation to one another.</p>
+                    <h3 class="sub-heading">Box Properties</h3>
+                    <p>Every element within a document is structured as a rectangular box inside the document layout, the size and "onion layers" of which can be tweaked using some specific CSS properties. The relevant properties are as follows:</p>
+                    <figure>
+                        <img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="A visual representation of the box model">
+                        <figcaption>A visual representation of a box model</figcaption>
+                    </figure>
+                    <dl>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width" class="sub-heading">width</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height" class="sub-heading">height</a>
+                        </dt>
+                        <dd>The <strong>width</strong> and <strong>height</strong> properties set the width and height of the content box, which is the area in which the content of the box is displayed — this content includes both text content set inside the box, and other boxes representing nested child elements.</dd>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" class="sub-heading">padding</a>
+                        </dt>
+                        <dd><strong>Padding</strong> refers to the inner margin of a CSS box — between the outer edge of the content box and the inner edge of the border. The size of this layer can be set on all four sides at once with the padding shorthand property, or one side at a time with the <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code> and <code>padding-left</code> properties.</dd>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border" class="sub-heading">border</a>
+                        </dt>
+                        <dd>The <strong>border</strong> of a CSS box sits between the outer edge of the padding and the inner edge of the margin. By default the border has a size of 0 — making it invisible — but you can set the thickness, style and color of the border to make it appear. The <code>border</code> shorthand property allows you to set all of these on all four sides at once, for example <code>border: 1px solid black</code>. This can be broken down into numerous different longhand properties for more specific styling needs:</dd>
+                        <ul>
+                            <li><code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code>border-left: Set the thickness, style and color of one side of the border.</li>
+                            <li><code>border-width</code>, <code>border-style</code>, <code>border-color</code>: Set only the thickness, style, or color individually, but for all four sides of the border.</li>
+                            <li>You can also set one of the three properties of a single side of the border individually, using <code>border-top-width</code>, <code>border-top-style</code>, <code>border-top-width</code>, etc.</li>
+                        </ul>
+                        <dt>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" class="sub-heading">margin</a>
+                        </dt>
+                        <dd>The <strong>margin</strong> surrounds a CSS box, and pushes up against other CSS boxes in the layout. It behaves rather like <code>padding</code>; the shorthand property is <code>margin</code> and the individual properties are <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, and <code>margin-left</code>.</dd>
+                    </dl>
+                </article>
+            </section>
+            
+            <section class="main-section" id="reference">
+                <header>
+                    <h1>Reference</h1>
+                </header>
+                <p>All documentation from this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS" class="ref-text">MDN</a> and <a href="https://www.w3schools.com/css/default.asp" class="ref-text">W3Schools</a></p>
+            </section>
+        </main>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
