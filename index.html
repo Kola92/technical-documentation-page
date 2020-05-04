@@ -20,7 +20,6 @@
                 <a class="nav-link" href="#css_values_and_units"><li>CSS Values and Units</li></a>
                 <a class="nav-link" href="#cascade_and_inheritance"><li>Cascade and Inheritance</li></a>
                 <a class="nav-link" href="#the_box_model"><li>The Box Model</li></a>
-                <a class="nav-link" href="#css_layout"><li>CSS Layout</li></a>
                 <a class="nav-link" href="#reference"><li>Reference</li></a>
             </ul>
         </nav>
@@ -101,9 +100,9 @@
                     <p>The first rule starts with an h1 selector, which means that it will apply its property & values to the <span>&lt;h1&gt;</span> element. It contains three properties and their values (each property/value pair is called a <strong>declaration</strong> and everything contained within the <q>{}</q> is called a <strong>declaration block</strong>):</p>
 
                     <ul>
-                        <li>The first one sets the <span>h1</span> text color to blue.</li>
-                        <li>The second sets the background color of the <span>h1</span> text to yellow.</li>
-                        <li>The third one puts a border around the <span>h1</span> that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.</li>
+                        <li>The first one sets the <code>h1</code> text color to blue.</li>
+                        <li>The second sets the background color of the <code>h1</code> text to yellow.</li>
+                        <li>The third one puts a border around the <code>h1</code> that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.</li>
                     </ul>
                 </article>
             </section>
@@ -131,7 +130,7 @@
                     </ul>
 
                     <p>
-                        A property paired with a value is called a <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax#CSS_declarations">CSS declaration</a>. CSS declarations are put within <strong>CSS Declaration Blocks</strong>. And finally, CSS declaration blocks are paired with selectors to produce CSS Rulesets (or CSS Rules).
+                        A property paired with a value is called a <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax#CSS_declarations" class="text-hightlight">CSS declaration</a>. CSS declarations are put within <strong>CSS Declaration Blocks</strong>. And finally, CSS declaration blocks are paired with selectors to produce CSS Rulesets (or CSS Rules).
                     </p>
                     
                     <p>
@@ -210,13 +209,13 @@
                             <strong>At-rules</strong> are used in CSS to convey metadata, conditional information, or other descriptive information. They start with an at sign (@), followed by an identifier to say what kind of rule it is, then a syntax block of some kind, ending with a semi-colon (;). Each type of at-rule, defined by the identifier, will have its own internal syntax and semantics.<br> Examples include:
                             <ul>
                                 <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@charset">@charset</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">@import (metadata)</a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@charset" class="text-hightlight">@charset</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import" class="text-hightlight">@import (metadata)</a>
                                 </li>
                                 <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@document">@document</a> (conditional information, also called nested statements, see below.)
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media" class="text-hightlight">@media</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@document" class="text-hightlight">@document</a> (conditional information, also called nested statements, see below.)
                                 </li>
                                 <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">@font-face</a>(descriptive information)
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" class="text-hightlight">@font-face</a>(descriptive information)
                                 </li>
                             </ul>
                             A syntax example:
@@ -419,9 +418,11 @@
                         <li><strong>Pseudo-classes:</strong></li>
                         <p>A CSS pseudo-class is a keyword added to the end of a selector, preceded by a colon (:), which is used to specify that you want to style the selected element but only when it is in a certain state. For example, you might want to style a link element only when it is being hovered over by the mouse pointer, or a checkbox when it is disabled or checked, or an element that is the first child of its parent in the DOM tree.</p>
                         <p>Take an example of the following HTML snippet:</p>
-                        <code>
-                            &lt;a href="https://developer.mozilla.org/" target="_blank"&gt;Mozilla Developer Network&lt;/a&gt;
-                        </code>
+                        <pre>
+                            <code>
+                                &lt;a href="https://developer.mozilla.org/" target="_blank"&gt;Mozilla Developer Network&lt;/a&gt;
+                            </code>
+                        </pre>    
                         <p>Here goes the CSS rules:</p>
                         <pre>
                             <code>

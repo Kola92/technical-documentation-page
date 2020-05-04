@@ -6,6 +6,9 @@ html, body {
     background-color: bisque;
 }
 
+nav {
+    overflow-y: scroll;
+}
 
 nav h1 {
     text-align: center;
@@ -30,9 +33,9 @@ hr:after {
 }
 
 nav ul {
-    border: 3px solid whitesmoke;
-    padding: 20px;
-    overflow-y: auto;
+    border-top: 3px solid whitesmoke;
+    border-bottom: 3px solid whitesmoke;
+    text-align: center;
 }
 
 nav a {
@@ -45,14 +48,71 @@ nav li {
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     height: 7vh;
-    padding-top: 14px;
+    padding-top: 20px;
     color: rgba(0, 0, 0, 0.795)
 } 
 
 main {
-    padding-left: 40px;
+    padding-left: 1.3rem;
+    padding-right: 0;
 }
 
-.sub-heading, .ref-text {
+.sub-heading, .ref-text, .text-highlight {
     color: cadetblue;
 }
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+  }
+
+pre > code{
+    display: block;
+    background-color:#f7f7f7;
+    border-radius:5px;
+    overflow: auto;
+    min-width: 100%;
+  }
+
+  code {
+    background-color: #f7f7f77c;
+  }
+
+  figcaption {
+      text-align: left;
+      padding-top: 20px;
+      font-weight: 700;
+  }
+
+  @media (min-width: 800px) {
+    nav {
+        position: fixed;
+        min-width: 30%;
+        top: 0px;
+        left: 0px;
+        width: 300px;
+        height: 100vh;
+        border-right: solid;
+        border-color:rgba(0,22,22,0.4);
+        margin-bottom: 300px;
+    }    
+
+    nav ul {
+        padding-top: 0;
+        padding-left: 0;
+        overflow-y: auto;
+        min-height: 88%;
+        margin-top: 0;
+    }
+
+    nav li {
+        height: 5.8vh;
+        padding-top: 13.8px;
+    }
+
+    main {
+        margin-left: 35%;
+        overflow: hidden;
+    }
+  }
